@@ -16,5 +16,3 @@ class make_datasets():
         seq_arr = np.array(seq_data)
         target_arr = np.array(target_data)
         return seq_arr, target_arr
-
-    def make_trading_data(self,):
