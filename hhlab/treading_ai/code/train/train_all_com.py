@@ -15,7 +15,7 @@ def train_comps():
         usecols=[1])
     ).flatten()
     len(train_list)
-    for i in train_list:
+    for i in train_list[8:]:
         print('学習開始：{}'.format(i))
         make_param = Make_param(i)
 
@@ -104,10 +104,13 @@ class Make_param():
             if epoch%10000 == 0:
                 if self.train_min_loss < 0 or self.train_min_loss>loss.item():
                     self.train_min_loss = loss.item()
-                    
+
                 print("min_loss:{}".format(self.min_loss))
                 self.save_params()
                 print("train_min_loss:{}".format(self.train_min_loss))
+                if self.train_min_loss<10:
+                    print("{}回目で打ち切り".format(epoch))
+                    break
     #パラメータをpthファイルに保存する、検証用データに対する誤差が最小のモデルが保存される事になる
     def save_params(self):
         dir_path = "/home/ikrfun/Projects/hhlab/treading_ai/trained_params"
