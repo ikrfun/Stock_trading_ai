@@ -15,7 +15,7 @@ def train_comps():
         usecols=[1])
     ).flatten()
     len(train_list)
-    for i in train_list[8:]:
+    for i in train_list[35:]:
         print('学習開始：{}'.format(i))
         make_param = Make_param(i)
 
