@@ -92,7 +92,7 @@ class Make_param():
         x,y = self.data.get_traindata()
         x = x.to(self.gpu)
         y = y.to(self.gpu)
-        num_epochs = 100001
+        num_epochs = 200001
         optimizer = optim.AdamW(self.model.parameters(),lr = 0.0001)
         for epoch in range(num_epochs):
             self.model.train()
